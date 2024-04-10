@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Maksym\Campaign\Api\CampaignRepositoryInterface" type="Maksym\Campaign\Model\CampaignRepository"/>
+	<preference for="Maksym\Campaign\Api\Data\CampaignInterface" type="Maksym\Campaign\Model\Campaign"/>
+	<preference for="Maksym\Campaign\Api\Data\CampaignSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="Maksym\Campaign\Model\ResourceModel\Campaign\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">maksym_campaign_campaign</argument>
+			<argument name="resourceModel" xsi:type="string">Maksym\Campaign\Model\ResourceModel\Campaign\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="maksym_campaign_campaign_listing_data_source" xsi:type="string">Maksym\Campaign\Model\ResourceModel\Campaign\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+
+    <preference for="Magento\Catalog\Block\Product\ListProduct" type="Maksym\Campaign\Block\Product\ListProduct" />
+    <preference for="Magento\Catalog\Block\Product\View\Options\Type\DefaultType" type="Maksym\Campaign\Block\Product\View\DefaultType" />
+
+</config>

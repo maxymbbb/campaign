@@ -1,0 +1,11 @@
+
+
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<body>
+    <referenceBlock name="product.info" class="\Maksym\Campaign\Block\Product\View\DefaultType">
+        <action method="setTemplate">
+            <argument name="template" xsi:type="string">Maksym_Campaign::product/view/default.phtml</argument>
+        </action>
+    </referenceBlock>
+</body>
+</page>
